@@ -1,13 +1,13 @@
-import React, { useState} from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import App,{ mostrarPaginaDeInicio} from './view/App';
+import App from './view/App';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-const laPagina = new App(this);
+
 root.render(
-	<laPagina.MostrarPaginaDeInicio />
+	<App />
 );
 
 reportWebVitals();

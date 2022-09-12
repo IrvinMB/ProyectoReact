@@ -4,10 +4,10 @@ import '../style/Splash.css';
 function Splash(props) {
 	let logo = './logo.ico';
 	return (
-		<div className="body" onClick={props.elContexto}>
+		<div className="Splash" onClick={props.elContexto}>
 			<img src={logo} className="logo" alt="logo" />
 		</div>
 	);
 }
 
-export default Splash;
+export default Splash.bind(this);

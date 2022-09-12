@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Carrusel from '../components/Carrusel/';
 const movies = require('../components/listas/peliculas.json');
 
