@@ -1,14 +1,11 @@
-import { React } from 'react';
-import { Link } from 'react-router-dom';
+import React, { Component } from 'react';
+import Carrusel from '../components/Carrusel/';
+const movies = require('../components/listas/peliculas.json');
 
-import '../style/Home.css';
 function Home() {
-	let logo = './images/icon.png';
 	return (
-		<div>
-			<div className="body">
-				<img src={logo} className="logo" alt="logo" />
-			</div>
+		<div className="app">
+			<Carrusel elContenido={movies}></Carrusel>
 		</div>
 	);
 }

@@ -1,0 +1,23 @@
+.ContenidoDetalle{
+width: 100%;
+background:#fff;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+}
+.card {
+    border: 1px solid #dadada;
+    box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.2s;
+    padding:80px 80px 20px 15px;
+    width: 50%;
+    background:
+     linear-gradient(to bottom left,transparent 49.5%,#fff 50%) 0 0px/100% 200px,
+     linear-gradient(#fff,#fff) bottom/100% calc(100% - 150px); background-repeat:no-repeat;
+  }
+  
+  .card h3 {
+    padding: 2px;
+    margin: 8px 0;
+  }

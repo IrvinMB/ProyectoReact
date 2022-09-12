@@ -3,11 +3,10 @@ ul{
 }
 
 .menu{
-  background-color: #e3dfdf6a; 
+  background-color: #000000d9; 
   min-height: 100%;
   flex-direction: column;
   position:fixed;
-  /* display: flex;  */
   width: 25vw;
   font-size: calc(10px + 2vmin); 
 }

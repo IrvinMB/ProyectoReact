@@ -1,18 +1,13 @@
 import { React } from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter, } from 'react-router-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
+import App,{ mostrarPaginaDeInicio} from './view/App';
 
-import Menu from './view/Menu';
-import RoutesApp from './routes/Routes';
-// import Splash from './view/Splash';
-// Home()
 const root = ReactDOM.createRoot(document.getElementById('root'));
+const laPagina = new App();
 root.render(
-	<BrowserRouter>
-      <Menu /> 
-	</BrowserRouter>
+	laPagina.MostrarPaginaDeInicio()
 );
 
 reportWebVitals();
