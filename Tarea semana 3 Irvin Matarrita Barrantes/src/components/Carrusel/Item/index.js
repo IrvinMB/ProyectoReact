@@ -8,7 +8,7 @@ export default function Item(props) {
 	};
 	let imagen = 'https://image.tmdb.org/t/p/w200' + props.Imagen;
 	let key = props.Id;
-	// console.log(imagen);
+	console.log(imagen);
 	return (
 		<div className="item" onClick={() => mostrarDetalle(key)}>
 			<img className="imagenDeCarrusel" src={imagen} id={key} />

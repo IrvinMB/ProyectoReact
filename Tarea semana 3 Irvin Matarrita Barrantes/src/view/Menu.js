@@ -1,15 +1,15 @@
-import React from 'react';
+import { React } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import Menu from '../components/menu';
 import Rutas from '../components/menu/rutas';
 
 import '../style/Menu.css';
+const losItems = new Menu();
 const lasRutas = new Rutas();
-function MenuGeneral(props) {
+function MenuGeneral() {
 	return (
 		<BrowserRouter>
-			<Menu NombreDeUsuario={props.NombreDeUsuario}
-				onCerrar={props.onCerrar} />
+			<losItems.MuestreLosElementos />
 			<lasRutas.MuestreLasRutas />
 		</BrowserRouter>
 	);

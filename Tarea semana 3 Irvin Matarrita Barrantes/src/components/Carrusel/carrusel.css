@@ -1,0 +1,8 @@
+.contenido {
+	margin: 0px;
+	display: flex;
+	flex-direction: row;
+    gap: 15px;
+    flex-wrap: wrap;
+    flex-grow: 4; 
+}
