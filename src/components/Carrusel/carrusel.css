@@ -1,8 +1,12 @@
-.contenido {
-	margin: 0px;
-	display: flex;
-	flex-direction: row;
-    gap: 15px;
-    flex-wrap: wrap;
-    flex-grow: 4; 
+@media screen and (max-width:758px) {
+    .contenido {
+        margin: 0px;
+        display: block;
+        gap: 15px;
+        flex-wrap: wrap;
+        flex-grow: 4;
+        width: calc(250px + 67vw);
+        overflow-x: overlay;
+    }  
 }
+

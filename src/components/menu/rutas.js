@@ -11,14 +11,16 @@ class Rutas extends React.Component {
 	}
 	MuestreLasRutas() {
 		return (
-			<div className="main">
-				<Routes>
-					<Route path="/" element={<Home />} />
-					<Route path="/peliculas" element={<Peliculas />} />
-					<Route path="/series" element={<Series />} />
-					<Route path="/favoritos" element={<Favoritos />} />
-					<Route path="/detalle/:id" element={<Detalle />} />
-				</Routes>
+			<div className="contenidoVariante">		
+				<div className="main">
+					<Routes>
+						<Route path="/" element={<Home />} />
+						<Route path="/peliculas" element={<Peliculas />} />
+						<Route path="/series" element={<Series />} />
+						<Route path="/favoritos" element={<Favoritos />} />
+						<Route path="/detalle/:id" element={<Detalle />} />
+					</Routes>
+				</div>
 			</div>
 		);
 	}
