@@ -1,0 +1,73 @@
+.Categoria{
+    margin: 0;
+    padding: 0;
+    width: 758px;
+   display: flex;
+   overflow: hidden;
+   flex-wrap: nowrap;
+}
+.Categoria .ItemsDeCategoria{
+    margin: 0;
+    padding: 0;
+    width: 758px;
+   display: flex;
+   overflow: scroll;
+   flex-wrap: nowrap;
+   scrollbar-width: none;
+}
+::-webkit-scrollbar {
+    display: none;
+}
+.Categoria .items{
+    background-color: #0000;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    gap: 1vw;
+    height: 125px;
+    padding: 7px;
+    transition-timing-function: linear;
+    transition-duration: 0.9s;
+}
+.Categoria .flechaIzquierda{
+    height: 125px;
+    width: 4vw;
+    z-index: 1;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.Categoria .flechaDerecha{
+    height: 125px;
+    width: 8vw;
+    z-index: 1;
+    width: 25px;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.Categoria .flechaIzquierda svg{
+    fill: white; 
+    transform: rotate(90deg);
+}
+.Categoria .flechaDerecha svg{
+    fill: white; 
+    transform: rotate(270deg);
+}
+.Categoria li{
+    background-color: #0000;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    gap: 1vw;
+    height: 125px;
+    padding: 3px;
+}

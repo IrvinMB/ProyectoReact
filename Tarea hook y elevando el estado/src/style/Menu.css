@@ -1,0 +1,25 @@
+ul{
+  list-style:none;
+}
+.menu a {
+  color: #ffffff;
+  text-decoration: none;
+}
+.menu{
+  background-color: #000000d9; 
+  min-height: 100%;
+  flex-direction: column;
+  position:fixed;
+  width: 25vw;
+  font-size: calc(10px + 2vmin); 
+}
+.main{
+  display: flex; 
+  background-color: #545454; 
+  min-height: 100vh;
+  margin-left: 25vw;
+}
+
+
+
+
