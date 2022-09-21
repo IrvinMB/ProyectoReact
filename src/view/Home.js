@@ -9,7 +9,7 @@ function Home() {
 	return (
 		<div >
 			{ elResutlado?
-				<Carrusel elContenido={elResutlado}></Carrusel>:null
+				<Carrusel tipo='movie' elContenido={elResutlado} genero='genre/movie/list'></Carrusel>:null
 			}
 		</div>
 	);

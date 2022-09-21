@@ -4,7 +4,7 @@ import './item.css';
 export default function Item(props) {
 	let navegacion = useNavigate();
 	const mostrarDetalle = (id) => {
-		navegacion('/detalle/'+id ,{state:{id:id}});
+		navegacion('/detalle/' + id, { state: { id: id, tipo: props.tipo } });
 	};
 	let imagen = 'https://image.tmdb.org/t/p/w200' + props.Imagen;
 	let key = props.Id;

@@ -1,4 +1,15 @@
+import React from 'react';
+import Carrusel from '../components/Carrusel/';
+import useConexion from '../services/Conexion';
 function Series() {
-	return <h2>Series</h2>;
+	const [elResutlado, elError] = useConexion('tv/on_the_air');
+
+	return (
+		<div >
+			{ elResutlado?
+				<Carrusel  tipo='tv' elContenido={elResutlado} genero='genre/tv/list'></Carrusel>:null
+			}
+		</div>
+	);
 }
 export default Series;

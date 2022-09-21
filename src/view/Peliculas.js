@@ -1,4 +1,15 @@
+import React from 'react';
+import Carrusel from '../components/Carrusel/';
+import useConexion from '../services/Conexion';
 function Peliculas() {
-    return <h2>Peliculas</h2>;
+    const [elResutlado, elError] = useConexion('movie/now_playing');
+
+	return (
+		<div >
+			{ elResutlado?
+				<Carrusel  tipo='movie' elContenido={elResutlado} genero='genre/movie/list'></Carrusel>:null
+			}
+		</div>
+	);
 }
 export default Peliculas;

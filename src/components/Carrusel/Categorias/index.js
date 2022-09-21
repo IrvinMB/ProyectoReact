@@ -24,9 +24,10 @@ export default function Categoria(props) {
 	props.elContenido.forEach((elElemento, key) => {
 		losItemos.push(
 			<Item
-				Imagen={elElemento.poster_path}
-				Id={elElemento.id}
-				key={elElemento.id + key}
+                Imagen={elElemento.poster_path}
+                Id={elElemento.id}
+                key={elElemento.id + key}
+                tipo={props.tipo}
 			/>
 		);
 	});
