@@ -27,8 +27,10 @@ class App extends Component {
 	}
 	verifiqueElLocalStorage() {
 		let elUsuarioDeLocalStorage = JSON.parse(localStorage.getItem('usuario'));
-		if (elUsuarioDeLocalStorage.correo != '') {
-			this.setUsuario(elUsuarioDeLocalStorage.correo);
+		if (elUsuarioDeLocalStorage) { 
+			if (elUsuarioDeLocalStorage.correo != '') {
+				this.setUsuario(elUsuarioDeLocalStorage.correo);
+			}
 		}
 	}
 	CierreLaSesion() {
@@ -61,7 +63,9 @@ class App extends Component {
 					<Login
 						onLogin={(x) => {
 							this.setUsuario(x);
-							this.setState();
+								}}
+						onCambioDeEstado={() => {
+							this.setEstado();
 						}}
 					/>
 				)}

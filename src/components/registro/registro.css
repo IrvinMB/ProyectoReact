@@ -1,0 +1,108 @@
+body {
+	line-height: 1;
+	background: #2c3338;
+	color: #606468;
+	font: 87.5%/1.5em 'Open Sans', sans-serif;
+	margin: 0;
+}
+ol,
+ul {
+	list-style: none;
+}
+* {
+	box-sizing: border-box;
+}
+*:before,
+*:after {
+	box-sizing: border-box;
+}
+a {
+	text-decoration: none;
+}
+#registre input {
+	color: #ffffff !important;
+	border: none;
+	font-family: 'Open Sans', Arial, sans-serif;
+	font-size: 14px;
+	line-height: 1.5em;
+	padding: 0;
+	-webkit-appearance: none;
+}
+p {
+	line-height: 1.5em;
+}
+.container {
+	margin: 25% auto;
+	width: 100%;
+	max-width: 300px;
+	/* margin-top: 200px; */
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+.g-row {
+	margin: 0 auto;
+	width: 100%;
+	max-width: 1000px;
+}
+#registre {
+	width: 280px;
+}
+#registre form span {
+	background-color: #363b41;
+	border-radius: 3px 0px 0px 3px;
+	color: #606468;
+	display: block;
+	float: left;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	width: 50px;
+}
+#registre form input {
+	height: 50px;
+	width: 280px;
+	margin-bottom: 1em;
+	background-color: #d3d7db;
+	padding: 0 16px;
+}
+#registre form input[type='email'],
+#registre form input[type='password'] {
+	background-color: #d3d7db;
+	border-radius: 0px 3px 3px 0px;
+	color: #606468;
+	margin-bottom: 1em;
+	padding: 0 16px;
+	width: 280px;
+}
+#registre form input[type='submit'] {
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	background-color: #4cea9c;
+	color: #eee;
+	font-weight: bold;
+	margin-bottom: 10px;
+	text-transform: uppercase;
+	width: 280px;
+}
+#registre form input[type='submit']:hover {
+	background-color: #54e3497e;
+}
+#registre > p {
+	text-align: center;
+}
+#registre > p span {
+	padding-left: 5px;
+}
+#registre	img {
+		text-align: center;
+		max-height: 150px;
+		margin: 19px 41px;
+	
+}
+#registre .errores{
+	color:red;
+}

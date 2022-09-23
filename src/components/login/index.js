@@ -1,47 +1,101 @@
-import React, { useRef } from 'react';
+import React, { useRef,useState } from 'react';
+import { useForm } from 'react-hook-form';
 import './login.css';
 export default function ComponenteLogin(props) {
+	const { register, handleSubmit,formState:{ errors }, watch, trigger } = useForm();
+	const [usuarioInvalido, setUsuarioInvalida] = useState(false); 
 	let nombreUsuarioInput = useRef('');
 	let passwordInput = useRef('');
 	const alEnviar = (event) => {
-		event.preventDefault();
-		localStorage.setItem('usuario', JSON.stringify({
-			correo: nombreUsuarioInput.current.value,
-			password: passwordInput.current.value,
-		}));
+		let elUsuarioDeLocalStorage = JSON.parse(localStorage.getItem('usuarioRegistrado'));
+		if (elUsuarioDeLocalStorage) { 
+			if (elUsuarioDeLocalStorage.data.correo == event.correo &&
+				elUsuarioDeLocalStorage.data.password == event.password) {
+							setUsuarioInvalida(false);
+				localStorage.setItem(
+					'usuario',
+					JSON.stringify({
+						correo: nombreUsuarioInput.current.value,
+						password: passwordInput.current.value,
+					})
+				);
+				props.onLogin(JSON.parse(localStorage.getItem('usuario')).correo);
+			} else { 
+				setUsuarioInvalida(true);
+			}
+		}
+	
 		
-		props.onLogin(JSON.parse(localStorage.getItem('usuario')).correo);
 	};
 
 	return (
 		<div className="container">
 			<div id="login">
 				<img src="./images/icon.png" className="logo" alt="logo" />{' '}
-				<form className="login-form" onSubmit={alEnviar}>
+				<form className="login-form" onSubmit={handleSubmit(alEnviar)}>
 					<span className="fa fa-user"></span>
-					<input
+					{/* <input
 						autoFocus
 						maxLength="25"
 						ref={nombreUsuarioInput}
 						placeholder="Email"
 						type="email"
 						required
-					/>
-					<span className="fa fa-lock"></span>
+					/> */}
 					<input
+						type="email"
+						placeholder="Correo"
+						{...register('correo', {
+							required:
+								'El correo es requerido en formato de coreo nombre@mail.com',
+							pattern: {
+								value:
+									/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+								message: 'Formato de correo invalido',
+							},
+						})}
+						onBlur={() => {
+							trigger('correo');
+						}}
+					/>
+					<p className="errores">{errors.correo?.message}</p>
+
+					<span className="fa fa-lock"></span>
+					{/* <input
 						autoComplete="off"
 						maxLength="8"
 						placeholder="Password"
 						type="password"
 						ref={passwordInput}
 						required
+					/> */}
+					<input
+						type="password"
+						placeholder="Contraseña"
+						{...register('password', {
+							required: 'Se requiere una contraseña',
+						})}
+						onBlur={() => {
+							trigger('password');
+						}}
 					/>
+					{ usuarioInvalido?<p className="errores">Usuario o contraseña invalido</p>:null					
+					}
 					<input type="submit" value="Log in" />
 				</form>
 			</div>
 			<div className="sign-up__actions clearfix">
 				<p>
-					No tienes usario? <a href="/sign-up">Registrarse</a>
+					No tienes usario?{' '}
+					<a
+						href="/Registro"
+						onClick={(e) => {
+							e.preventDefault();
+							props.onCambioDeEstado();
+						}}
+					>
+						Registrarse
+					</a>
 					<span className="fa fa-arrow-right"></span>
 				</p>
 			</div>

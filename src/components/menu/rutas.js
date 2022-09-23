@@ -5,6 +5,7 @@ import Peliculas from '../../view/Peliculas';
 import Series from '../../view/Series';
 import Favoritos from "../../view/Favoritos";
 import Detalle from '../../view/Detalle';
+import Registros from '../../view/Registros';
 class Rutas extends React.Component {
 	constructor(props) {
 		super();
@@ -19,6 +20,7 @@ class Rutas extends React.Component {
 						<Route path="/series" element={<Series />} />
 						<Route path="/favoritos" element={<Favoritos />} />
 						<Route path="/detalle/:id" element={<Detalle />} />
+						<Route path="/Registro" element={<Registros />} />
 					</Routes>
 				</div>
 			</div>
