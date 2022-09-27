@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
+import {useSelector, useDispatch}  from 'react-redux';
+import { insertUsuario } from "../Usuario/state/usuarioActions";
 import './registro.css';
 
 export default function Registro(props) {
@@ -10,31 +12,18 @@ export default function Registro(props) {
 		watch,
 		trigger,
 	} = useForm();
+	const dispatch = useDispatch();
+    const {loading} = useSelector(state=>state.usuario);
 	const onSubmit = (data) => {
-		localStorage.setItem(
-			'usuarioRegistrado',
-			JSON.stringify({
-				data,
-			})			
-		);
-		props.onRegister();
-		// fetch('/bd',{
-		// 	method: 'POST',
-		// 	headers: { 'Content-Type': 'application/json' },
-		// 	body: JSON.stringify({ title: 'React POST Request Example' })
-		// })
-		// 	.then((data) => data.json)
-		// 	.then((elResultado) => {
-		// 		console.log("Respuesta",elResultado);
-		// 	}
-		// 	);
+		dispatch(insertUsuario(data));  
 	};
 
-	useEffect(() => {
-		watch((value, { name, type }) => console.log(value, name, type));
-	}, [watch]);
+	// useEffect(() => {
+	// 	watch((value, { name, type }) => console.log(value, name, type));
+	// }, [watch]);
 	return (
 		<div className="container">
+			     {loading?<span>Enviando datos....</span>:null}
 			<div id="registre">
 				<h1>Registro</h1>
 				<form className="login-form" onSubmit={handleSubmit(onSubmit)}>
@@ -93,6 +82,7 @@ export default function Registro(props) {
 						}}
 					/>
 					<p className="errores">{errors.password?.message}</p>
+					<input type="file"  {...register("files.foto")} />
 					<input type="submit" value="Registrar" />
 				</form>
 			</div>

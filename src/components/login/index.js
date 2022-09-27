@@ -1,31 +1,60 @@
-import React, { useRef,useState } from 'react';
+import React, { useRef, useState,useEffect } from 'react';
 import { useForm } from 'react-hook-form';
+import { useSelector, useDispatch } from 'react-redux';
+import { getUsuario } from '../Usuario/state/usuarioActions';
 import './login.css';
 export default function ComponenteLogin(props) {
-	const { register, handleSubmit,formState:{ errors }, watch, trigger } = useForm();
-	const [usuarioInvalido, setUsuarioInvalida] = useState(false); 
+	const {
+		register,
+		handleSubmit,
+		formState: { errors },
+		watch,
+		trigger,
+	} = useForm();
+	const [usuarioInvalido, setUsuarioInvalida] = useState(false);
 	let nombreUsuarioInput = useRef('');
 	let passwordInput = useRef('');
+	const elStorage = useSelector((state) => state.usuario.usuario);
+	const dispatch = useDispatch();
+	useEffect(() => {
+		dispatch(getUsuario());
+	 }, []);
 	const alEnviar = (event) => {
-		let elUsuarioDeLocalStorage = JSON.parse(localStorage.getItem('usuarioRegistrado'));
-		if (elUsuarioDeLocalStorage) { 
-			if (elUsuarioDeLocalStorage.data.correo == event.correo &&
-				elUsuarioDeLocalStorage.data.password == event.password) {
-							setUsuarioInvalida(false);
-				localStorage.setItem(
-					'usuario',
-					JSON.stringify({
-						correo: nombreUsuarioInput.current.value,
-						password: passwordInput.current.value,
-					})
-				);
-				props.onLogin(JSON.parse(localStorage.getItem('usuario')).correo);
-			} else { 
-				setUsuarioInvalida(true);
-			}
-		}
-	
-		
+		console.log(elStorage);	
+		let elUsuarioDeLocalStorage = elStorage?.find(elUsuario => { 
+			return (elUsuario.correo ==  event.correo)
+		});
+		if (elUsuarioDeLocalStorage){
+			// console.log(elUsuarioDeLocalStorage);
+			// setUsuarioInvalida(false);
+			localStorage.setItem(
+				'usuario',
+				JSON.stringify({
+					correo: nombreUsuarioInput.current.value,
+					password: passwordInput.current.value,
+				})
+			);
+			props.onLogin(elUsuarioDeLocalStorage.correo);
+
+			// if (
+			// 	elUsuarioDeLocalStorage.data.correo == event.correo &&
+			// 	elUsuarioDeLocalStorage.data.password == event.password
+			// ) {
+			// 	setUsuarioInvalida(false);
+			// 	localStorage.setItem(
+			// 		'usuario',
+			// 		JSON.stringify({
+			// 			correo: nombreUsuarioInput.current.value,
+			// 			password: passwordInput.current.value,
+			// 		})
+			// 	);
+			// 	props.onLogin(JSON.parse(localStorage.getItem('usuario')).correo);
+			// } else {
+			// 	setUsuarioInvalida(true);
+			// }
+		} else {
+			setUsuarioInvalida(true);
+		}		
 	};
 
 	return (
@@ -79,8 +108,9 @@ export default function ComponenteLogin(props) {
 							trigger('password');
 						}}
 					/>
-					{ usuarioInvalido?<p className="errores">Usuario o contraseña invalido</p>:null					
-					}
+					{usuarioInvalido ? (
+						<p className="errores">Usuario o contraseña invalido</p>
+					) : null}
 					<input type="submit" value="Log in" />
 				</form>
 			</div>
