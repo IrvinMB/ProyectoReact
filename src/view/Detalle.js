@@ -36,7 +36,7 @@ function Detalle(props) {
     }, [losDatosCredits])
 	return (
         <div className="ContenidoDetalle">
-            {(elDetalleVideo)?
+            {(elDetalleVideo&&elDetalleCredits&&elDetalleAMostrar&&elDetalleRecomendaciones)?
                 <ElementoDeDetalle elDetalle={elDetalleAMostrar}
                     elDetalleVideo={elDetalleVideo}
                     elDetalleRecomendaciones={elDetalleRecomendaciones}

@@ -6,7 +6,7 @@ export default function ElementoDeDetalle(props) {
 	let background = 'https://image.tmdb.org/t/p/w500' + losDatos.backdrop_path;
 	let imagen = 'https://image.tmdb.org/t/p/w200' + losDatos.poster_path;
 	let key = losDatos.Id;
-	let video = props.elDetalleVideo?.results[0].key;
+	let video = props.elDetalleVideo?.results[0]?.key;
 	let cretitos = props.elDetalleCredits;
 	console.log(cretitos.cast);
 	return (

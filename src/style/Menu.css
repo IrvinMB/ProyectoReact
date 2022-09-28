@@ -18,7 +18,7 @@
 }
 .main{
   display: flex; 
-  background-color: #545454; 
+  background-color: #000000; 
   min-height: 100vh;
 }
 
@@ -102,7 +102,7 @@
   }
   
   .menu{
-    background-color: #246facd9; 
+    background-color: #000000d9; 
     width: 25vw;
     font-size: calc(7px + 3vmin); 
   }

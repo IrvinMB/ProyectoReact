@@ -75,7 +75,7 @@
     .Categoria{
         margin: 0;
         padding: 0;
-        width: 2560px;
+        width: 93%;
        display: flex;
        overflow: hidden;
        flex-wrap: nowrap;
@@ -116,9 +116,8 @@
     }
     .Categoria .flechaDerecha{
         height: 125px;
-        width: 8vw;
+        width: 4vw;
         z-index: 1;
-        width: 25px;
         color: #fff;
         display: flex;
         flex-direction: column;
@@ -142,5 +141,9 @@
         gap: 1vw;
         height: auto;
         padding: 3px;
+    }
+    .contenido h1{
+        color: rgb(255, 255, 255);
+        
     }
     }
