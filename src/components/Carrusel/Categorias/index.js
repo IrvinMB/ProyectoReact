@@ -37,14 +37,28 @@ export default function Categoria(props) {
 					return true;
 				}				
 			});	
-			losItems.push(<Item
-				Imagen={elElemento.poster_path}
-				Id={elElemento.id}
-				key={key + '-' + props.tipo + '-' + elElemento.id + '-' + props.CategoriaId}
-				tipo={props.tipo}
-				esFavorito={esFavorito}
-				idFavorito={ elIdFavorito}
-			/>)
+			
+			if (props.MostrarSoloFavoritos) {
+				if (esFavorito) {
+					losItems.push(<Item
+						Imagen={elElemento.poster_path}
+						Id={elElemento.id}
+						key={key + '-' + props.tipo + '-' + elElemento.id + '-' + props.CategoriaId}
+						tipo={props.tipo}
+						esFavorito={esFavorito}
+						idFavorito={elIdFavorito}
+					/>)
+				}
+			} else { 
+				losItems.push(<Item
+					Imagen={elElemento.poster_path}
+					Id={elElemento.id}
+					key={key + '-' + props.tipo + '-' + elElemento.id + '-' + props.CategoriaId}
+					tipo={props.tipo}
+					esFavorito={esFavorito}
+					idFavorito={elIdFavorito}
+				/>)
+			}
 			setLosTitulos(losItems)
 			
 		});

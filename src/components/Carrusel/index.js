@@ -55,6 +55,7 @@ export default function Carrusel(props) {
 							elContenido={elGenero.laLista}
 							losFavoritos={elStorage}
 							CategoriaId={elGenero.id + 1+elGenero.elNombreDelGenero}
+							MostrarSoloFavoritos={props.MostrarSoloFavoritos} 
 						></Categoria>
 						;
 					</div>

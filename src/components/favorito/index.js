@@ -1,13 +1,15 @@
 import React from 'react';
 import Carrusel from '../Carrusel/';
 import useConexion from '../../services/Conexion';
-function Favorito() {
+function Favorito(props) {
     const [elResutlado, elError] = useConexion('movie/now_playing');
 
 	return (
 		<div >
 			{ elResutlado?
-				<Carrusel  tipo='movie' elContenido={elResutlado} genero='genre/movie/list'></Carrusel>:null
+				<Carrusel tipo='movie' elContenido={elResutlado}
+					genero='genre/movie/list'
+					MostrarSoloFavoritos={props.MostrarSoloFavoritos} ></Carrusel> : null
 			}
 		</div>
 	);

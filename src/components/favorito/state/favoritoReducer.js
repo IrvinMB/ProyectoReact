@@ -4,6 +4,7 @@ import { getFavorito,insertFavorito,eliminaFavorito } from "./favoritoActions"
 const initialState={
     favorito: [],
     agrega: false,
+    datos:[]
 }
 
 export const favoritoSlice = createSlice({
@@ -17,9 +18,9 @@ export const favoritoSlice = createSlice({
         [getFavorito.rejected]:(state)=>{
             state.loading =false;
         },
-        [getFavorito.fulfilled]:(state,{payload})=>{
-            state.loading =true;
+        [getFavorito.fulfilled]:(state,{payload})=>{      
             state.favorito = payload;
+            state.loading =true;
         },
         [insertFavorito.pending]:(state)=>{
             state.loading=true;

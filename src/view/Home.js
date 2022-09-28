@@ -7,10 +7,15 @@ function Home() {
 	const [elResutlado, elError] = useConexion('movie/now_playing');
 
 	return (
-		<div >
-			{ elResutlado?
-				<Carrusel tipo='movie' elContenido={elResutlado} genero='genre/movie/list'></Carrusel>:null
-			}
+		<div>
+			{elResutlado ? (
+				<Carrusel
+					tipo="movie"
+					MostrarSoloFavoritos={false}
+					elContenido={elResutlado}
+					genero="genre/movie/list"
+				></Carrusel>
+			) : null}
 		</div>
 	);
 }

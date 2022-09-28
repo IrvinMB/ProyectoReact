@@ -7,7 +7,9 @@ function Peliculas() {
 	return (
 		<div >
 			{ elResutlado?
-				<Carrusel  tipo='movie' elContenido={elResutlado} genero='genre/movie/list'></Carrusel>:null
+				<Carrusel MostrarSoloFavoritos={false}
+					tipo='movie'
+					elContenido={elResutlado} genero='genre/movie/list'></Carrusel> : null
 			}
 		</div>
 	);

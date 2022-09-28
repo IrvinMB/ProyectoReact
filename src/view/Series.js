@@ -7,7 +7,8 @@ function Series() {
 	return (
 		<div >
 			{ elResutlado?
-				<Carrusel  tipo='tv' elContenido={elResutlado} genero='genre/tv/list'></Carrusel>:null
+				<Carrusel MostrarSoloFavoritos={false}
+					tipo='tv' elContenido={elResutlado} genero='genre/tv/list'></Carrusel> : null
 			}
 		</div>
 	);
