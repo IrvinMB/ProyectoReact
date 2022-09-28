@@ -12,46 +12,24 @@ export default function ComponenteLogin(props) {
 		trigger,
 	} = useForm();
 	const [usuarioInvalido, setUsuarioInvalida] = useState(false);
-	let nombreUsuarioInput = useRef('');
-	let passwordInput = useRef('');
 	const elStorage = useSelector((state) => state.usuario.usuario);
 	const dispatch = useDispatch();
 	useEffect(() => {
 		dispatch(getUsuario());
 	 }, []);
-	const alEnviar = (event) => {
-		console.log(elStorage);	
+	const alEnviar = (event) => {		
 		let elUsuarioDeLocalStorage = elStorage?.find(elUsuario => { 
 			return (elUsuario.correo ==  event.correo)
 		});
 		if (elUsuarioDeLocalStorage){
-			// console.log(elUsuarioDeLocalStorage);
-			// setUsuarioInvalida(false);
 			localStorage.setItem(
 				'usuario',
-				JSON.stringify({
-					correo: nombreUsuarioInput.current.value,
-					password: passwordInput.current.value,
-				})
+				JSON.stringify(
+					elUsuarioDeLocalStorage
+				)
 			);
-			props.onLogin(elUsuarioDeLocalStorage.correo);
+			props.onLogin(elUsuarioDeLocalStorage.correo,elUsuarioDeLocalStorage.nombre,elUsuarioDeLocalStorage.foto);
 
-			// if (
-			// 	elUsuarioDeLocalStorage.data.correo == event.correo &&
-			// 	elUsuarioDeLocalStorage.data.password == event.password
-			// ) {
-			// 	setUsuarioInvalida(false);
-			// 	localStorage.setItem(
-			// 		'usuario',
-			// 		JSON.stringify({
-			// 			correo: nombreUsuarioInput.current.value,
-			// 			password: passwordInput.current.value,
-			// 		})
-			// 	);
-			// 	props.onLogin(JSON.parse(localStorage.getItem('usuario')).correo);
-			// } else {
-			// 	setUsuarioInvalida(true);
-			// }
 		} else {
 			setUsuarioInvalida(true);
 		}		

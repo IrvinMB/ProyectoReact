@@ -33,11 +33,10 @@ input {
 p {
 	line-height: 1.5em;
 }
-.container {
+.container .login{
 	margin: 25% auto;
 	width: 100%;
 	max-width: 300px;
-	/* margin-top: 200px; */
 	display: flex;
 	align-items: center;
 	flex-direction: column;
